@@ -1,110 +1,85 @@
-#pragma once
 
 #include<iostream>
 #include<string>
+#include"Car.h"
 using namespace std;
 
-class Car
+
+//-----------------------------------------------Constructor Definitions-----------------------------------------------
+
+Car::Car()
 {
-	private:
-		//Attributes
-		string company;
-		string regNo;
-		int model;
-		bool transmissionType;
+	this->company = "";
+	this->regNo = "";
+	this->model = 0;
+	this->transmissionType = false;
+}
 
-	public:
-		//Constructors
+Car::Car(string company, string regNo, int model, bool transmissionType)	//Parameterized Constructor
+{
+	this->company = company;
+	this->regNo = regNo;
+	this->model = model;
+	this->transmissionType = transmissionType;
+}
 
-		Car()	//Default Constructor
-		{
-			this->company = "";
-			this->regNo = "";
-			this->model = 0;
-			this->transmissionType = false;
-		}
+Car::Car(Car& car)	//Copy Constructor
+{
+	this->company = car.company;
+	this->regNo = car.regNo;
+	this->model = car.model;
+	this->transmissionType = car.transmissionType;
+}
 
-		Car(string company, string regNo, int model, bool transmissionType)	//Parameterized Constructor
-		{
-			this->company = company;
-			this->regNo = regNo;
-			this->model = model;
-			this->transmissionType = transmissionType;
-		}
+//-----------------------------------------------Destructor Definitions-----------------------------------------------
 
-		Car(Car& car)	//Copy Constructor
-		{
-			this->company = car.company;
-			this->regNo = car.regNo;
-			this->model = car.model;
-			this->transmissionType = car.transmissionType;
-		}
-
-		//Destructor
-
-		~Car()
-		{
-			cout << "Thank You For Coming!" << endl;
-		}
-
-		//Getters
-		
-		string getCompany()
-		{
-			return this->company;
-		}
-
-		string getRegNo()
-		{
-			return this->regNo;
-		}
-
-		int getModel()
-		{
-			return this->model;
-		}
-
-		bool getTransmissionType()
-		{
-			return this->transmissionType;
-		}
-
-		//Setters
-		
-		void setCompany(string company)
-		{
-			this->company = company;
-		}
-
-		void setRegNo(string regNo)
-		{
-			this->regNo = regNo;
-		}
-
-		void setModel(int model)
-		{
-			this->model = model;
-		}
-
-		void setTransmissionType(bool transmission)
-		{
-			this->transmissionType = transmission;
-		}
-
-		//Methods
+Car::~Car()
+{
+	cout << "Thank You For Coming!" << endl;
+}
 
 
-};
 
+//-----------------------------------------------Getter Definitions-----------------------------------------------
 
-int main()
-{	
-	string st;
-	Car car1;
-	cin >> ws;
-	getline(cin, st);
+string Car::getCompany()
+{
+	return this->company;
+}
 
-	car1.setCompany(st);
-	cout << car1.getCompany() << endl;
-	return 0;
+string Car::getRegNo()
+{
+	return this->regNo;
+}
+
+int Car::getModel()
+{
+	return this->model;
+}
+
+bool Car::getTransmissionType()
+{
+	return this->transmissionType;
+}
+
+//-----------------------------------------------Setter Definitions-----------------------------------------------
+
+void Car::setCompany(string company)
+{
+	this->company = company;
+}
+
+void Car::setRegNo(string regNo)
+{
+	this->regNo = regNo;
+}
+
+void Car::setModel(int model)
+{
+	this->model = model;
+}
+
+void Car::setTransmissionType(bool transmission)
+{
+	this->transmissionType = transmission;
 }
