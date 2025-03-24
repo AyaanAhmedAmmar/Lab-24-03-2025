@@ -1,5 +1,6 @@
 #pragma once
 
+#include<iostream>
 #include<string>
 using namespace std;
 
@@ -37,6 +38,13 @@ class Car
 			this->regNo = car.regNo;
 			this->model = car.model;
 			this->transmissionType = car.transmissionType;
+		}
+
+		//Destructor
+
+		~Car()
+		{
+			cout << "Thank You For Coming!" << endl;
 		}
 
 		//Getters
@@ -87,3 +95,16 @@ class Car
 
 
 };
+
+
+int main()
+{	
+	string st;
+	Car car1;
+	cin >> ws;
+	getline(cin, st);
+
+	car1.setCompany(st);
+	cout << car1.getCompany() << endl;
+	return 0;
+}
